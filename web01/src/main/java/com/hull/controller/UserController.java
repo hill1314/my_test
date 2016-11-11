@@ -17,8 +17,4 @@ public class UserController {
         return new ModelAndView("userInfo");
     }
 
-    @RequestMapping("/getUser2")
-    public Object getUser2(){
-        return new ModelAndView("view/userInfo");
-    }
 }

@@ -1,7 +1,9 @@
 package com.hull.dao;
 
 import com.hull.entity.PayInfo;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PayInfoMapper {
     int deleteByPrimaryKey(String payId);
 

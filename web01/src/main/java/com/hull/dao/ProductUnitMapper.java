@@ -1,7 +1,9 @@
 package com.hull.dao;
 
 import com.hull.entity.ProductUnit;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProductUnitMapper {
     int deleteByPrimaryKey(String unitId);
 

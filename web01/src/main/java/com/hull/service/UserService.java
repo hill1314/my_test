@@ -1,10 +1,11 @@
-package com.hull.dao;
+package com.hull.service;
 
 import com.hull.entity.User;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserMapper {
+/**
+ * Created by Administrator on 2016/11/11.
+ */
+public interface UserService {
     int deleteByPrimaryKey(String userId);
 
     int insert(User record);

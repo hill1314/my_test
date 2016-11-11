@@ -19,6 +19,9 @@
     <!-- 注册HandlerMapper、HandlerAdapter两个映射类,负责将请求映射到类和方法中 -->
     <mvc:annotation-driven />
 
+    <!-- 访问静态资源 -->
+     <mvc:default-servlet-handler />
+
     <!-- 配置视图解析器  ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

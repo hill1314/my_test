@@ -18,14 +18,22 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int deleteByPrimaryKey(String userId) {
-//        return userMapper.deleteByPrimaryKey(userId);
+        try {
+            return userMapper.deleteByPrimaryKey(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
     @Override
     public int insert(User record) {
-        return userMapper.insert(record);
-//        return 0;
+        try {
+            return userMapper.insert(record);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
@@ -40,19 +48,31 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User selectByPrimaryKey(String userId) {
-//        return userMapper.selectByPrimaryKey(userId);
+        try {
+            return userMapper.selectByPrimaryKey(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public int updateByPrimaryKeySelective(User record) {
-//        return userMapper.updateByPrimaryKeySelective(record);
+        try {
+            return userMapper.updateByPrimaryKeySelective(record);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
     @Override
     public int updateByPrimaryKey(User record) {
-//        return userMapper.updateByPrimaryKey(record);
+        try {
+            return userMapper.updateByPrimaryKey(record);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 }

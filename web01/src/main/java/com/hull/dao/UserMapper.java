@@ -6,15 +6,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
-    int deleteByPrimaryKey(String userId);
+    int deleteByPrimaryKey(String userId) throws Exception;
 
-    int insert(User record);
+    int insert(User record) throws Exception;
 
     int insertSelective(User record) throws Exception;
 
-    User selectByPrimaryKey(String userId);
+    User selectByPrimaryKey(String userId) throws Exception;
 
-    int updateByPrimaryKeySelective(User record);
+    int updateByPrimaryKeySelective(User record) throws Exception;
 
-    int updateByPrimaryKey(User record);
+    int updateByPrimaryKey(User record) throws Exception;
 }

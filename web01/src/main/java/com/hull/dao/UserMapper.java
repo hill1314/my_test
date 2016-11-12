@@ -1,6 +1,7 @@
 package com.hull.dao;
 
 import com.hull.entity.User;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -9,7 +10,7 @@ public interface UserMapper {
 
     int insert(User record);
 
-    int insertSelective(User record);
+    int insertSelective(User record) throws Exception;
 
     User selectByPrimaryKey(String userId);
 

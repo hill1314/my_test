@@ -13,8 +13,8 @@ import javax.annotation.Resource;
 @Service("userService")
 public class UserServiceImpl implements UserService{
 
-//    @Resource
-//    UserMapper userMapper;
+    @Resource
+    UserMapper userMapper;
 
     @Override
     public int deleteByPrimaryKey(String userId) {
@@ -24,13 +24,17 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int insert(User record) {
-//        return userMapper.insert(record);
-        return 0;
+        return userMapper.insert(record);
+//        return 0;
     }
 
     @Override
     public int insertSelective(User record) {
-//        return userMapper.insertSelective(record);
+        try {
+            return userMapper.insertSelective(record);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 

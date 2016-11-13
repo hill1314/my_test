@@ -2,6 +2,8 @@ package com.hull.service;
 
 import com.hull.entity.User;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/11/11.
  */
@@ -17,4 +19,6 @@ public interface UserService {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectAll(User user);
 }

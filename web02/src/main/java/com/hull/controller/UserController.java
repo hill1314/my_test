@@ -6,10 +6,13 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/11/7.
@@ -26,24 +29,36 @@ public class UserController {
     public Object getUser(String userId){
         logger.info("userId=="+userId);
         User user = userService.selectByPrimaryKey(userId);
-        ModelAndView view = new ModelAndView("userInfo");
+        ModelAndView view = new ModelAndView("user/userInfo");
         view.addObject("user",user);
         return view;
     }
 
-    @RequestMapping("/saveUser")
+    @RequestMapping(value = "/addUser",method = RequestMethod.GET)
+    public Object addUser(){
+        return new ModelAndView("user/addUser");
+    }
+
+    @RequestMapping(value = "/saveUser",method = RequestMethod.POST)
+    @ResponseBody
     public Object saveUser(User user){
         logger.info("insert user .. ");
+        Map<String,Object> map = new HashMap<>();
         int n = userService.insertSelective(user);
-        ModelAndView view = new ModelAndView("userList");
-        return view;
+        if (n>0){
+            map.put("resultCode","0000");
+        }else{
+            map.put("resultCode","1000");
+            map.put("resultMsg","保存失败");
+        }
+        return map;
     }
 
     @RequestMapping("/userList")
     public Object userList(User user){
         logger.info("insert user .. ");
         List<User> userList = userService.selectAll(user);
-        ModelAndView view = new ModelAndView("userList");
+        ModelAndView view = new ModelAndView("user/userList");
         view.addObject("userList",userList);
         return view;
     }

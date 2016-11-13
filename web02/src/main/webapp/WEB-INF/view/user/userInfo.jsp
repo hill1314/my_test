@@ -11,6 +11,6 @@
     <title>userInfo</title>
 </head>
 <body>
-    user info2 ${user.userName}
+    客户名称: ${user.userName}
 </body>
 </html>

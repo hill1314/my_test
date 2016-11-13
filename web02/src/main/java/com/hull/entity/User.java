@@ -1,9 +1,9 @@
 package com.hull.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable{
-
     private String userId;
 
     private String userName;
@@ -25,6 +25,10 @@ public class User implements Serializable{
     private String email;
 
     private String userPic;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     public String getUserId() {
         return userId;
@@ -112,5 +116,21 @@ public class User implements Serializable{
 
     public void setUserPic(String userPic) {
         this.userPic = userPic == null ? null : userPic.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

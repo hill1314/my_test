@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Administrator on 2016/11/11.
@@ -41,6 +43,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public int insertSelective(User record) {
         try {
+            record.setUserId(UUID.randomUUID().toString());
+            record.setCreateTime(new Date());
             return userMapper.insertSelective(record);
         } catch (Exception e) {
             e.printStackTrace();

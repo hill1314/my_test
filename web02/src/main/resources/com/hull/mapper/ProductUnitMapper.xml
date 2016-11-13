@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hull.dao.ProductUnitMapper" >
+  <resultMap id="BaseResultMap" type="com.hull.entity.ProductUnit" >
+    <id column="unit_id" property="unitId" jdbcType="CHAR" />
+    <result column="unit_name" property="unitName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    unit_id, unit_name, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from product_unit
+    where unit_id = #{unitId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from product_unit
+    where unit_id = #{unitId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hull.entity.ProductUnit" >
+    insert into product_unit (unit_id, unit_name, status
+      )
+    values (#{unitId,jdbcType=CHAR}, #{unitName,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hull.entity.ProductUnit" >
+    insert into product_unit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="unitId != null" >
+        unit_id,
+      </if>
+      <if test="unitName != null" >
+        unit_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="unitId != null" >
+        #{unitId,jdbcType=CHAR},
+      </if>
+      <if test="unitName != null" >
+        #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hull.entity.ProductUnit" >
+    update product_unit
+    <set >
+      <if test="unitName != null" >
+        unit_name = #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where unit_id = #{unitId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hull.entity.ProductUnit" >
+    update product_unit
+    set unit_name = #{unitName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR}
+    where unit_id = #{unitId,jdbcType=CHAR}
+  </update>
+</mapper>

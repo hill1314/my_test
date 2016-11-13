@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      	http://www.springframework.org/schema/beans/spring-beans.xsd 
+      	http://www.springframework.org/schema/aop
+      	http://www.springframework.org/schema/aop/spring-aop.xsd
+      	http://www.springframework.org/schema/tx
+     	http://www.springframework.org/schema/tx/spring-tx.xsd
+     	http://www.springframework.org/schema/context
+     	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置扫描的包 -->
+    <context:component-scan base-package="com.hull" />
+
+ 	<!-- 启动AOP支持 -->
+      <!--<aop:aspectj-autoproxy/>-->
+     
+     <!-- 引入外部数据源配置信息 -->
+      <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+         <property name="locations" value="classpath:jdbc.properties"/>
+     </bean>
+     
+     <!-- 1、数据源 -->
+     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driver}" />
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+    </bean>
+    
+  	<!-- 2、mybatis 的sqlsession 工厂，SqlSessionFactoryBean  -->
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
+     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />  
+        <!--加载mybatis.cfg.xml文件-->
+        <property name="configLocation" value="classpath:mybatis.cfg.xml"/>
+        <!--指定实体类的包名，自动将实体的简单类名映射成别名-->
+        <property name="typeAliasesPackage" value="com.hull.entiry"/>
+         <!-- 自动扫描mapping.xml文件 -->
+         <property name="mapperLocations" value="classpath:com/hull/mapper/*.xml"/>
+     </bean>
+  
+  	<!-- 3、mybatis 自动扫描加载sql映射文件：MapperScannerConfigurer  -->
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hull.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+  
+  	<!-- 4、事务管理 DataSourceTransactionManager -->
+     <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+  
+  	<!-- 5、使用声明式事务，引用上面定义的事务 -->
+  	 <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+  	
+  	<!-- 定义个通知，指定事务管理器 -->
+     <!-- <tx:advice id="txAdvice" transaction-manager="txManager">
+         <tx:attributes>
+             <tx:method name="delete*" propagation="REQUIRED" read-only="false"
+                 rollback-for="java.lang.Exception" />
+             <tx:method name="save*" propagation="REQUIRED" read-only="false"
+                 rollback-for="java.lang.Exception" />
+             <tx:method name="insert*" propagation="REQUIRED" read-only="false"
+                 rollback-for="java.lang.Exception" />
+             <tx:method name="update*" propagation="REQUIRED" read-only="false"
+                 rollback-for="java.lang.Exception" />
+             <tx:method name="load*" propagation="SUPPORTS" read-only="true"/>
+             <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+             <tx:method name="search*" propagation="SUPPORTS" read-only="true"/>
+             <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+             <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+         </tx:attributes>
+     </tx:advice> -->
+
+</beans>

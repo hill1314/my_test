@@ -7,31 +7,36 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<script src="/WEB-INF/view/common/jquery-2.1.4.min.js"/>
+
 <head>
     <title>addUser</title>
 </head>
 <body>
     <div>
-        <form id="userForm" action="/user/saveUser">
+        <form id="userForm" action="">
             <table>
                 <tbody>
-                <tr>  客户名称: <input type="text" name="user.userName" /> </tr>
-                <tr>  登录帐号: <input type="text" name="user.loginName" /> </tr>
-                <tr>  别名: <input type="text" name="user.nickName" /> </tr>
-                <tr>  手机号码: <input type="text" name="user.telephone" /> </tr>
-                <tr>  电话号码: <input type="text" name="user.phone" /> </tr>
-                <tr>  住址: <input type="text" name="user.address" /> </tr>
-                <tr>  邮箱: <input type="text" name="user.email" /> </tr>
-                <tr>  备注: <input type="text" name="user.note" /> </tr>
-                <tr>   <input type="button" value="保存" onclick="submit();"/> </tr>
+                <tr>  <td>客户名称:</td> <td><input type="text" name="user.userName" /></td> </tr>
+                <tr>  <td>登录帐号:</td> <td><input type="text" name="user.loginName" /></td> </tr>
+                <tr>  <td>别名:</td> <td><input type="text" name="user.nickName" /> </td></tr>
+                <tr>  <td>手机号码:</td> <td><input type="text" name="user.telephone" /> </td></tr>
+                <tr>  <td>电话号码: </td><td><input type="text" name="user.phone" /></td> </tr>
+                <tr>  <td>住址: </td><td><input type="text" name="user.address" /></td> </tr>
+                <tr>  <td>邮箱: </td><td><input type="text" name="user.email" /> </td></tr>
+                <tr>  <td>备注: </td><td><input type="text" name="user.note" /></td> </tr>
                 </tbody>
             </table>
         </form>
+        <input type="button" value="保存" onclick="submit();"/>
     </div>
 </body>
 <script>
     function submit() {
+        alert(111);
         var jsonData = $("#userForm").serialize();
+        alert(jsonData);
+
         $.ajax({
             url:"<%=request.getContextPath()%>/user/saveUser",
             type:"POST",

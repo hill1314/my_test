@@ -10,8 +10,6 @@ import java.util.List;
 public interface UserService {
     int deleteByPrimaryKey(String userId);
 
-    int insert(User record);
-
     int insertSelective(User record);
 
     User selectByPrimaryKey(String userId);

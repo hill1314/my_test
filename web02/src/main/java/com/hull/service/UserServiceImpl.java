@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by Administrator on 2016/11/11.
@@ -25,16 +24,6 @@ public class UserServiceImpl implements UserService{
     public int deleteByPrimaryKey(String userId) {
         try {
             return userMapper.deleteByPrimaryKey(userId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
-    @Override
-    public int insert(User record) {
-        try {
-            return userMapper.insert(record);
         } catch (Exception e) {
             e.printStackTrace();
         }

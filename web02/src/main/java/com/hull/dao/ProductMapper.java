@@ -5,15 +5,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductMapper {
-    int deleteByPrimaryKey(String prodId);
+    int deleteByPrimaryKey(String prodId) throws Exception;
 
-    int insert(Product record);
+    int insert(Product record) throws Exception;
 
-    int insertSelective(Product record);
+    int insertSelective(Product record) throws Exception;
 
-    Product selectByPrimaryKey(String prodId);
+    Product selectByPrimaryKey(String prodId) throws Exception;
 
-    int updateByPrimaryKeySelective(Product record);
+    int updateByPrimaryKeySelective(Product record) throws Exception;
 
-    int updateByPrimaryKey(Product record);
+    int updateByPrimaryKey(Product record) throws Exception;
 }

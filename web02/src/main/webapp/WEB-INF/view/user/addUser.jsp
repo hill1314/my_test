@@ -6,29 +6,28 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<script type="application/javascript" src="<%=request.getContextPath()%>/js/jquery-2.1.4.min.js"/>--%>
 <html>
-<script src="/WEB-INF/view/common/jquery-2.1.4.min.js"/>
-
 <head>
     <title>addUser</title>
 </head>
 <body>
     <div>
-        <form id="userForm" action="">
+        <form id="userForm" action="<%=request.getContextPath()%>/user/saveUser" method="post">
             <table>
                 <tbody>
-                <tr>  <td>客户名称:</td> <td><input type="text" name="user.userName" /></td> </tr>
-                <tr>  <td>登录帐号:</td> <td><input type="text" name="user.loginName" /></td> </tr>
-                <tr>  <td>别名:</td> <td><input type="text" name="user.nickName" /> </td></tr>
-                <tr>  <td>手机号码:</td> <td><input type="text" name="user.telephone" /> </td></tr>
-                <tr>  <td>电话号码: </td><td><input type="text" name="user.phone" /></td> </tr>
-                <tr>  <td>住址: </td><td><input type="text" name="user.address" /></td> </tr>
-                <tr>  <td>邮箱: </td><td><input type="text" name="user.email" /> </td></tr>
-                <tr>  <td>备注: </td><td><input type="text" name="user.note" /></td> </tr>
+                <tr>  <td>客户名称:</td> <td><input type="text" name="userName" /></td> </tr>
+                <tr>  <td>登录帐号:</td> <td><input type="text" name="loginName" /></td> </tr>
+                <tr>  <td>别名:</td> <td><input type="text" name="nickName" /> </td></tr>
+                <tr>  <td>手机号码:</td> <td><input type="text" name="telephone" /> </td></tr>
+                <tr>  <td>电话号码: </td><td><input type="text" name="phone" /></td> </tr>
+                <tr>  <td>住址: </td><td><input type="text" name="address" /></td> </tr>
+                <tr>  <td>邮箱: </td><td><input type="text" name="email" /> </td></tr>
+                <tr>  <td>备注: </td><td><input type="text" name="note" /></td> </tr>
                 </tbody>
             </table>
+            <input type="submit" value="保存" />
         </form>
-        <input type="button" value="保存" onclick="submit();"/>
     </div>
 </body>
 <script>
@@ -55,7 +54,6 @@
                 alert("出错了" + xhr.status + "，错误信息：" + xhr.responseText);
             }
         });
-
     }
 </script>
 </html>

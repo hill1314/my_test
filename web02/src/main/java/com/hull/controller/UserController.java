@@ -40,18 +40,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "/saveUser",method = RequestMethod.POST)
-    @ResponseBody
     public Object saveUser(User user){
         logger.info("insert user .. ");
         Map<String,Object> map = new HashMap<>();
         int n = userService.insertSelective(user);
         if (n>0){
-            map.put("resultCode","0000");
+            return  "redirect:/user/userList";
         }else{
-            map.put("resultCode","1000");
-            map.put("resultMsg","保存失败");
+            return  "redirect:/user/addUser";
         }
-        return map;
     }
 
     @RequestMapping("/userList")
@@ -62,7 +59,6 @@ public class UserController {
         view.addObject("userList",userList);
         return view;
     }
-
 
 
 }

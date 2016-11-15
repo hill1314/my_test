@@ -2,6 +2,7 @@ package com.hull.service;
 
 import com.hull.dao.UserMapper;
 import com.hull.entity.User;
+import com.hull.utils.Tools;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -43,7 +44,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public int insertSelective(User record) {
         try {
-            record.setUserId(UUID.randomUUID().toString());
+            record.setUserId(Tools.getUUID());
             record.setCreateTime(new Date());
             return userMapper.insertSelective(record);
         } catch (Exception e) {

@@ -60,7 +60,7 @@ public class UserController {
         return view;
     }
 
-    @RequestMapping(value = "/delUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/delUser")
     public Object delUser(String userId){
         logger.info("delete user  "+userId);
         userService.deleteByPrimaryKey(userId);

@@ -1,10 +1,12 @@
 package com.hull.service;
 
 import com.hull.entity.Product;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2016/11/15.
  */
+@Service
 public class ProductServiceImpl implements ProductService{
 
     @Override

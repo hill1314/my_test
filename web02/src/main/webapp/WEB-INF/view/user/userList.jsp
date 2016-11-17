@@ -24,7 +24,7 @@
                 <c:forEach items="${userList}" var="user">
                 <tr> <td>${user.userId}</td> <td>${user.userName}</td>
                     <td><a href="<%=request.getContextPath()%>/user/getUser?userId=${user.userId}">查看</a></td>
-                    <td><a href="<%=request.getContextPath()%>/user/del?userId=${user.userId}">删除</a></td>
+                    <td><a href="<%=request.getContextPath()%>/user/delUser?userId=${user.userId}">删除</a></td>
                 </tr>
                 </c:forEach>
             </tbody>

@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <title>首页</title>
-
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/img/taohua.jpg" type="image/x-icon" />
 </head>
 <body>
 
@@ -18,10 +18,10 @@
 
 <!-- 你可以添加个多“.slideshow-image”项目, 记得修改CSS -->
 <div class="slideshow">
-	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/1.jpg')"></div>
-	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/2.jpg')"></div>
-	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/3.jpg')"></div>
-	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/4.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/1.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/2.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/3.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/4.jpg')"></div>
 </div>
 
 </body>

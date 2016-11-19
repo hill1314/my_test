@@ -2,7 +2,9 @@ package com.hull.controller;
 
 import com.hull.entity.User;
 import com.hull.service.UserService;
+import com.hull.utils.JacksonUtils;
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,9 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static javafx.scene.input.KeyCode.J;
 
 /**
  * Created by Administrator on 2016/11/7.
@@ -51,13 +56,23 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/userListView")
+    public Object userListView(){
+        return "user/userList";
+    }
+
     @RequestMapping("/userList")
+    @ResponseBody
     public Object userList(User user){
-        logger.info("insert user .. ");
+        logger.info("user list .. ");
         List<User> userList = userService.selectAll(user);
-        ModelAndView view = new ModelAndView("user/userList");
-        view.addObject("userList",userList);
-        return view;
+        String jsonStr = "";
+        try {
+            jsonStr = JacksonUtils.obj2Json(userList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return jsonStr;
     }
 
     @RequestMapping(value = "/delUser")

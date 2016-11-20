@@ -50,7 +50,7 @@ public class UserController {
         Map<String,Object> map = new HashMap<>();
         int n = userService.insertSelective(user);
         if (n>0){
-            return  "redirect:/user/userList";
+            return  "redirect:/user/userListView";
         }else{
             return  "redirect:/user/addUser";
         }
@@ -79,7 +79,7 @@ public class UserController {
     public Object delUser(String userId){
         logger.info("delete user  "+userId);
         userService.deleteByPrimaryKey(userId);
-        return  "redirect:/user/userList";
+        return  "redirect:/user/userListView";
     }
 
 

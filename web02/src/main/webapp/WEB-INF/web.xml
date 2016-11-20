@@ -34,6 +34,28 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- 权限过滤器 -->
+    <!--<filter>-->
+        <!--<filter-name>Session Auth Check Filter</filter-name>-->
+        <!--<filter-class>com.hull.filter.AuthCheckFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>notCheckURL</param-name>-->
+            <!--<param-value>-->
+                <!--/;/index.jsp;/login.jsp-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>notCheckSessionTimeOut</param-name>-->
+            <!--<param-value>-->
+                <!--/;/index.jsp;/login.jsp-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>Session Auth Check Filter</filter-name>-->
+        <!--<url-pattern>*.jsp</url-pattern>-->
+    <!--</filter-mapping>-->
+
     <!--springMVC servlet-->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
@@ -50,6 +72,7 @@
     <!--</listener>-->
 
     <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

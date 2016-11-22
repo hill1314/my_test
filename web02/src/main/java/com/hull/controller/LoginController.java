@@ -1,6 +1,7 @@
 package com.hull.controller;
 
 import com.hull.entity.User;
+import com.hull.utils.ILog;
 import com.hull.utils.JacksonUtils;
 import com.hull.utils.StringUtil;
 import com.hull.utils.VerifyCodeUtils;
@@ -26,8 +27,7 @@ import java.util.Random;
  * Created by Administrator on 2016/11/21.
  */
 @Controller
-public class LoginController {
-    final static Logger logger = Logger.getLogger(LoginController.class);
+public class LoginController implements ILog{
 
     @RequestMapping(value = "/loginView")
     public Object loginView(){
@@ -75,7 +75,7 @@ public class LoginController {
     @ResponseBody
     public void getImgCode(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-
+        logger.info("generate the verify code ... ");
         //生成随机字串
         String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
         //存入会话session

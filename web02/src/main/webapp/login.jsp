@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<html lang="en" class="no-js">
+<html class="no-js">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>Fullscreen Login</title>
@@ -35,6 +35,14 @@
                 <div>
 					<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" onpaste="return false" />
                 </div>
+                <div>
+                    <input type="code" name="code" class="code" placeholder="请输入验证码" oncontextmenu="return false" onpaste="return false" />
+                </div>
+                <div>
+                    <img id="vimg"  title="点击更换" onclick="this.src='<%=request.getContextPath()%>/getImgCode?date='+new Date()"
+                         src="<%=request.getContextPath()%>/getImgCode">
+                </div>
+
                 <button id="submit" type="button">Sign in</button>
             </form>
             <div class="connect">
@@ -52,15 +60,21 @@
     </body>
 
     <script>
+
         $(".btn").click(function(){
             is_hide();
         })
         var u = $("input[name=username]");
         var p = $("input[name=password]");
+        var code = $("input[name=code]");
+
+        /**
+         * 登录
+         */
         $("#submit").live('click',function(){
-            if(u.val() == '' || p.val() =='')
+            if(u.val() == '' || p.val() =='' || code.val()=='')
             {
-                $("#ts").html("用户名或密码不能为空~");
+                $("#ts").html("用户名、密码、验证码 都不能为空~");
                 is_show();
                 return false;
             }
@@ -73,6 +87,33 @@
                     return false;
                 }
             }
+
+            var json = {
+                userName:u.val(),
+                password:p.val(),
+                userCode:code.val()
+            };
+
+            $.ajax({
+                url:"<%=request.getContextPath()%>/login",
+                type:"POST",
+                data:json,
+                dataType:"json",
+                success:function(data){
+                    console.log(data);
+                    if(data.resultCode!="0000"){
+                        alert(data.resultMsg);
+                    }else{
+                        window.self.location="<%=request.getContextPath()%>/menu.jsp";
+                    }
+                },
+                error:function(xhr,textStatus){
+                    console.log('错误')
+                    console.log(xhr)
+                    console.log(textStatus)
+                }
+            });
+
         });
         window.onload = function()
         {
@@ -81,7 +122,6 @@
         }
         function is_hide(){ $(".alert").animate({"top":"-40%"}, 300) }
         function is_show(){ $(".alert").show().animate({"top":"45%"}, 300) }
-
 
         jQuery(function($){
             $.supersized({

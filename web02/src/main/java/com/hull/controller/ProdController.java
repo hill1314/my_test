@@ -29,9 +29,4 @@ public class ProdController {
         return "success "+n;
     }
 
-    @RequestMapping("/test")
-    @ResponseBody
-    public Object test(){
-        return "success ";
-    }
 }

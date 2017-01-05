@@ -1,40 +1,29 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2016/11/13
-  Time: 15:25
-  To change this template use File | Settings | File Templates.
---%>
-
+﻿
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>--%>
 <script src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
-
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/index.css" type="text/css">
 <html>
-  <head>
-    <title>index</title>
-  </head>
-  <body>
-  测试:<input type="text" id="test" value="111"/>
-  <input type="button" value="测试" onclick="test()">
-  </body>
-  <script>
-    function test() {
-      alert(123);
-      alert( $("#test").attr("value"));
-//      alert( $("#test").value());
-//      $.ajax({type : "POST",
-//        url : "/prod/test",
-//        data : {
-//          userId : 123,
-//          'add[]' : [1,2,3],
-//          'del[]' :[4]
-//        },
-//        success : function (data){
-//          alert(333);
-//        }
-//      });
-    }
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/img/taohua.jpg" type="image/x-icon" />
+</head>
+<body>
 
-  </script>
+<!-- 文字区不需要请连css部分代码一并删除 -->
+<h1><small>全屏</small>
+	自动切换背景
+	<small>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</small>
+</h1>
+
+<!-- 你可以添加个多“.slideshow-image”项目, 记得修改CSS -->
+<div class="slideshow">
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/1.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/2.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/3.jpg')"></div>
+	<div class="slideshow-image" style="background-image: url('<%=request.getContextPath()%>/img/home/4.jpg')"></div>
+</div>
+
+</body>
 </html>
+

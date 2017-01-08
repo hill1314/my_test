@@ -24,8 +24,10 @@ public class UserController {
     @RequestMapping("/getUser")
     public Object getUser(){
         logger.info("getUser....");
+        User user = userService.selectByPrimaryKey("001");
+
         ModelAndView view = new ModelAndView("userInfo");
-        view.addObject("");
+        view.addObject("user",user);
         return view;
     }
 
@@ -34,7 +36,7 @@ public class UserController {
         logger.info("saveUser....");
         ModelAndView view = new ModelAndView("saveUser");
         User user = new User();
-        user.setUserId("001");
+        user.setUserId("002");
         user.setUserName("张三");
         userService.insertSelective(user);
         view.addObject("user",user);

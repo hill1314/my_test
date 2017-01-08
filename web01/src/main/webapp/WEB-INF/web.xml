@@ -5,7 +5,7 @@
             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <display-name>cMarket_smvc</display-name>
+    <display-name>web01</display-name>
 
     <!-- 告知javaEE容器，有哪些内容需要添加到上下文中去 -->
     <context-param>
@@ -40,7 +40,7 @@
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
 
-    <!--springMVC servlet-->
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

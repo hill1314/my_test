@@ -41,24 +41,24 @@ public class LoginController implements ILog{
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
-    public Object login(HttpServletRequest request,HttpServletResponse response,
+    public Object login(HttpServletRequest request,
                         String userName,String password,String userCode){
         Map<String,Object> resultMap = new HashMap<>();
         HttpSession session = request.getSession();
         String code = (String) session.getAttribute("verCode");
         //验证 验证码
-        boolean codeResult = StringUtil.isEqual(userCode,code);
+        boolean codeResult = StringUtil.isEqual(userCode.toLowerCase(),code);
         if(!codeResult){
             resultMap.put("resultCode","0001");
-            resultMap.put("resultMsg","验证码错误");
+            resultMap.put("resultMsg","verify code is wrong!");
         }else{
             //验证 用户名密码
             if("hull".equals(userName) && "123123".equals(password)){
                 resultMap.put("resultCode","0000");
-                resultMap.put("resultMsg","登录成功");
+                resultMap.put("resultMsg","success");
             }else{
                 resultMap.put("resultCode","0002");
-                resultMap.put("resultMsg","用户名或密码错误");
+                resultMap.put("resultMsg","user or password is wrong!");
             }
         }
 

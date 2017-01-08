@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
+
     int deleteByPrimaryKey(String userId) throws Exception;
 
     int insert(User record) throws Exception;

@@ -11,6 +11,6 @@
     <title>userInfo</title>
 </head>
 <body>
-    user info ...
+    user info ... ${user.userName}
 </body>
 </html>

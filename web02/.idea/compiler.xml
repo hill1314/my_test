@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="oneMarket" />
         <module name="web02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="oneMarket" target="1.8" />
       <module name="web02" target="1.8" />
     </bytecodeTargetLevel>
   </component>

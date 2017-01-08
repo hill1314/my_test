@@ -103,6 +103,7 @@
                     console.log(data);
                     if(data.resultCode!="0000"){
                         alert(data.resultMsg);
+                        $("#vimg").click();
                     }else{
                         window.self.location="<%=request.getContextPath()%>/menu.jsp";
                     }

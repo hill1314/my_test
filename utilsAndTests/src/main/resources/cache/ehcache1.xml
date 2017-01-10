@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <cache name="test" maxBytesLocalHeap="10M"/>
+
+    <!-- 日终序列参数配置缓存  -->
+    <cache name="testCache" maxEntriesLocalHeap="0" eternal="true" overflowToDisk="true"/>
+
+</ehcache>

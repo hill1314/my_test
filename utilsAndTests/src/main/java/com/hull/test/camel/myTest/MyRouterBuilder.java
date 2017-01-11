@@ -13,10 +13,10 @@ public class MyRouterBuilder extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-            from("file:f:/temp/inbox/?delay=30000")
+            from("file:d:/temp/inbox/?delay=30000")
             .process(processor)
-//            .process(p1)
-//            .process(p2)
-            .to("file:f:/temp/outbox");
+            .process(p1)
+            .process(p2)
+            .to("file:d:/temp/outbox");
     }
 }

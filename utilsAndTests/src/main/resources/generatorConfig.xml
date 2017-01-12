@@ -5,7 +5,7 @@
 <generatorConfiguration>
 	<!-- 数据库驱动 -->
 	<!-- <classPathEntry location="F:\\mybatisGenerator\\mysql-connector-java-5.1.28-bin.jar" /> -->
-	<classPathEntry location="ojdbc6.jar" />
+	<classPathEntry location="D:\\document\\mybatisGenerator\\ojdbc6.jar" />
 
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -34,7 +34,7 @@
 
 		<!-- 生成模型的包名和位置 -->
 		<javaModelGenerator targetPackage="cn.com.git.ncl.aplus.modules.entity"
-			targetProject="./target files/src">
+			targetProject="./src/main">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="true" />
 			<!-- 从数据库返回的值被清理前后的空格 -->
@@ -43,13 +43,13 @@
 
 		<!-- 生成映射文件的包名和位置 -->
 		<sqlMapGenerator targetPackage="com.hull.mapping"
-			targetProject="./target files/src">
+			targetProject="./src/main">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<!-- 生成DAO的包名和位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="cn.com.git.ncl.aplus.modules.entity" targetProject="./target files/src">
+			targetPackage="cn.com.git.ncl.aplus.modules.entity" targetProject="./src/main">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 

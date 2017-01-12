@@ -15,6 +15,13 @@
     </properties>
 
     <dependencies>
+        <!--rabbitmq 2017-01-10-->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>3.6.5</version>
+        </dependency>
+
         <!--ehcache 2017-1-9 14:19:52-->
         <dependency>
             <groupId>net.sf.ehcache</groupId>

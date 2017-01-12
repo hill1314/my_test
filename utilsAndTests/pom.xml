@@ -15,6 +15,12 @@
     </properties>
 
     <dependencies>
+        <!-- shiro 2017-1-12 17:28:18 -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
         <!--rabbitmq 2017-01-10-->
         <dependency>
             <groupId>com.rabbitmq</groupId>
@@ -28,11 +34,11 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.6.Final</version>
         </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty</artifactId>
-            <version>3.7.0.Final</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.netty</groupId>-->
+            <!--<artifactId>netty</artifactId>-->
+            <!--<version>3.7.0.Final</version>-->
+        <!--</dependency>-->
         <!--ehcache 2017-1-9 14:19:52-->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
@@ -122,11 +128,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-http</artifactId>
-            <version>${camel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
             <artifactId>camel-jetty</artifactId>
             <version>${camel.version}</version>
         </dependency>
@@ -152,6 +153,17 @@
             <version>4.12</version>
         </dependency>
 
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.3.2</version>
+        </dependency>
 
     </dependencies>
 
@@ -165,6 +177,12 @@
                     <target>1.8</target>
                     <encoding>utf8</encoding>
                 </configuration>
+            </plugin>
+            <!--mybatis.generator : mvn mybatis-generator:generate-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
             </plugin>
         </plugins>
     </build>

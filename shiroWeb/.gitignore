@@ -1,0 +1,8 @@
+*.class
+/target
+/.settings
+.classpath
+.project
+/web
+/src/test
+/.idea

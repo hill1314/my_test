@@ -22,6 +22,17 @@
             <version>3.6.5</version>
         </dependency>
 
+        <!--netty-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.6.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.7.0.Final</version>
+        </dependency>
         <!--ehcache 2017-1-9 14:19:52-->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
@@ -140,6 +151,8 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+
+
     </dependencies>
 
     <build>

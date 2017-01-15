@@ -15,6 +15,18 @@
     </properties>
 
     <dependencies>
+        <!--mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.28</version>
+        </dependency>
+        <!--druid 数据库连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.27</version>
+        </dependency>
         <!-- shiro 2017-1-12 17:28:18 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -34,11 +46,11 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.6.Final</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>io.netty</groupId>-->
-            <!--<artifactId>netty</artifactId>-->
-            <!--<version>3.7.0.Final</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.7.0.Final</version>
+        </dependency>
         <!--ehcache 2017-1-9 14:19:52-->
         <dependency>
             <groupId>net.sf.ehcache</groupId>

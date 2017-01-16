@@ -42,6 +42,41 @@ public class FileUtils {
         writer.close();
     }
 
+    /**
+     * A方法追加文件：使用RandomAccessFile
+     */
+    public static void appendMethodA(String fileName, String content) {
+        RandomAccessFile randomFile = null;
+        try {
+            // 获取是项目的绝对路径
+            File newFile = new File(fileName);
+            if(!newFile.exists())
+            {
+                newFile.createNewFile();
+            }
+            // 打开一个随机访问文件流，按读写方式
+            content = new String(content.getBytes("UTF-8"),"ISO8859_1");
+            randomFile = new RandomAccessFile(newFile, "rw");
+            // 文件长度，字节数
+            long fileLength = randomFile.length();
+            //将写文件指针移到文件尾。
+            randomFile.seek(fileLength);
+            randomFile.writeBytes(content);
+            randomFile.writeBytes("\n");
+            randomFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            if(randomFile!=null){
+                try {
+                    randomFile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public static void main(String[] args){
         try {
 //            String str = readFile("F:\\test.txt");

@@ -3,7 +3,7 @@
  */
 package com.hull.utils.udmp;
 
-import cn.com.git.udmp.common.exception.FrameworkException;
+import com.hull.test.autoMethod.camel.FrameworkException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import javax.servlet.http.HttpServletRequest;

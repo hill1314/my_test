@@ -37,7 +37,9 @@ public class FreeMarkers {
 			t.process(model, result);
 			return result.toString();
 		} catch (Exception e) {
-			throw Exceptions.unchecked(e);
+			e.printStackTrace();
+			return "";
+//			throw Exceptions.unchecked(e);
 		}
 	}
 
@@ -47,7 +49,9 @@ public class FreeMarkers {
 			template.process(model, result);
 			return result.toString();
 		} catch (Exception e) {
-			throw Exceptions.unchecked(e);
+			e.printStackTrace();
+			return "";
+//			throw Exceptions.unchecked(e);
 		}
 	}
 

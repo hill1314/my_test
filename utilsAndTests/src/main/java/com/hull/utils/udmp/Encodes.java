@@ -112,12 +112,12 @@ public class Encodes {
 		return StringEscapeUtils.unescapeHtml4(htmlEscaped);
 	}
 
-	/**
-	 * Xml 转码.
-	 */
-	public static String escapeXml(String xml) {
-		return StringEscapeUtils.escapeXml10(xml);
-	}
+//	/**
+//	 * Xml 转码.
+//	 */
+//	public static String escapeXml(String xml) {
+//		return StringEscapeUtils.escapeXml10(xml);
+//	}
 
 	/**
 	 * Xml 解码.

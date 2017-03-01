@@ -3,7 +3,7 @@ package com.hull.test.javabase.pass;
 /**
  * Created by hull on 2017/2/24.
  */
-public final class Car {
+public class Car {
     String name ;
 
     public Car(String name) {

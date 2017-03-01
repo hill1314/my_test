@@ -11,36 +11,36 @@ public class Test1 {
 
     public static void main(String[] args) {
         int a ;             //num是基本类型，值就直接保存在变量中
+        Integer i ;
         String str;         //str是引用类型，变量中保存的只是实际对象的地址
 
         a = 1;              //基本类型 num ，赋值运算符会直接改变变量的值，原来的值被覆盖掉
+        i = new Integer(10);
         str = "a";          //引用类型 str，赋值运算符会改变引用中所保存的地址，原来的地址被覆盖掉。但是原来的对象不会被改变（重要）
 
         int[] nums = {1,2,3};
         Person p = new Person("mike");
         Person p2 = new Person("mike2");
 
-        Car car = new Car("benchi");
-
-        method1(a,str,nums,p,car);
+        method1(a,i,str,nums,p);
 
         //除了在函数传值的时候是"引用传递"，在任何用"＝"向对象变量赋值的时候都是"引用传递"。
-        Person p3 = p2;     //引用传递,指向同一块地址
+        Person p3 = p2;     //【引用类型】 在任何用"＝"向对象变量赋值的时候都是"引用传递"
         p3.setName("mike3");
 
-        System.out.println(a);           //值传递
-        System.out.println(str);         //值传递
-        System.out.println(nums[2]);         //引用传递
+        System.out.println(a);           //基本类型的函数传递是值传递，传递的只是副本，原对象不变
+        System.out.println(i);          //包装类 暂时理解为也是值传递
+        System.out.println(str);         //String 暂时也理解为是值传递
+        System.out.println(nums[2]);        //引用类型包括（类class、 接口interface、 数组array）函数传递 都是引用传递
         System.out.println(p.getName());    //引用传递
         System.out.println(p2.getName());    //引用传递
-        System.out.println(car.getName());    //引用传递
     }
 
-    public static void method1(int a,String str,int[] nums,Person p,Car car){
+    public static void method1(int a,Integer i,String str,int[] nums,Person p){
         a = 2;
+        i = new Integer(20);
         str = "b";      // string 是finnal 的，所以每次创建都是新对象
         nums[2] =4;
         p.setName("jack");
-        car.setName("BMW");
     }
 }

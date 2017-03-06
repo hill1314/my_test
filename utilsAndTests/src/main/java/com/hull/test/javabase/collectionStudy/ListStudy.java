@@ -30,6 +30,7 @@ public class ListStudy {
         HashMap hashMap = new HashMap();
         Hashtable hashtable = new Hashtable();
 
+
         /**
          * 它引入了一个“分段锁”的概念，具体可以理解为把一个大的Map拆分成N个小的HashTable，
          * 根据key.hashCode()来决定把key放到哪个HashTable中
@@ -41,6 +42,8 @@ public class ListStudy {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
 
 
-
     }
+
+
+
 }

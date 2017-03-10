@@ -18,7 +18,7 @@ public class MapStudy {
     public static void main(String[] args) {
 
         HashMap<String, String> map = new HashMap<String, String>();
-        for(int i=1;i<=10;i++){
+        for(int i=1;i<=20;i++){
             map.put("key"+i, "value"+i);
         }
 

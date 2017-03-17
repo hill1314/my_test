@@ -1,18 +1,29 @@
 package com.hull.test.javabase.paixu;
 
 import java.sql.Array;
+import java.util.Arrays;
 
 /**
  * Created by Administrator on 2017/3/4.
  *
+ *  内部排序（使用内存）------| 插入排序--直接插入排序、希尔排序
+                             |选择排序--简单选择排序、堆排序
+                             |交换排序--冒泡排序、快速排序
+                             |归并排序
+                             |基数排序
+   外部排序（内存和外存结合排序）
+ http://blog.csdn.net/hguisu/article/details/7776068
+
  * Java常用排序方法
  * http://www.cnblogs.com/sevenyuan/archive/2009/12/04/1616897.html
  */
 public class PaixuTest {
     public static void main(String[] args) {
         int[] numbers = {2,3,5,1,9,4};
-//        bubbleSort(numbers);
-        quickSort(numbers,0,5);
+        bubbleSort(numbers);
+//        quickSort(numbers,0,5);
+//        insertSort(numbers);
+        System.out.println(Arrays.toString(numbers));
     }
 
     /**
@@ -38,7 +49,6 @@ public class PaixuTest {
                 }
             }
         }
-        System.out.println();
     }
 
     /**
@@ -92,6 +102,7 @@ public class PaixuTest {
         int size = numbers.length, temp;
         for (int i = 0; i < size; i++) {
             int k = i;
+            //在未排序序列中找到最小元素，存放到排序序列的起始位置
             for (int j = size - 1; j >i; j--)  {
                 if (numbers[j] < numbers[k])  k = j;
             }
@@ -112,14 +123,18 @@ public class PaixuTest {
      * <li>重复步骤2</li>
      * </ul>
      *
+     *  时间复杂度：O（n^2）.
      * @param numbers
      */
     public static void insertSort(int[] numbers) {
         int size = numbers.length, temp, j;
         for(int i=1; i<size; i++) {
+            //取出下一个元素，在已经排序的元素序列中从后向前扫描
             temp = numbers[i];
             for(j = i; j > 0 && temp < numbers[j-1]; j--)
+                //如果该元素（已排序）大于新元素，将该元素移到下一位置
                 numbers[j] = numbers[j-1];
+            //直到找到已排序的元素小于或者等于新元素的位置,将新元素插入到该位置中
             numbers[j] = temp;
         }
     }

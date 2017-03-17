@@ -8,6 +8,8 @@ import java.io.IOException;
 
 /**
  * Created by hull on 2017/2/21.
+ *
+ * http://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
  */
 public class ZTest {
     public static String CLIENT_PORT = "8080";

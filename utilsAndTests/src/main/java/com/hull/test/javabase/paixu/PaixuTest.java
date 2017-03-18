@@ -20,8 +20,8 @@ import java.util.Arrays;
 public class PaixuTest {
     public static void main(String[] args) {
         int[] numbers = {2,3,5,1,9,4};
-        bubbleSort(numbers);
-//        quickSort(numbers,0,5);
+//        bubbleSort(numbers);
+        quickSort(numbers,0,5);
 //        insertSort(numbers);
         System.out.println(Arrays.toString(numbers));
     }

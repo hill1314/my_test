@@ -3,7 +3,7 @@
 /.settings
 .classpath
 .project
-/web
+/out
 /src/test
 /.idea
 *.iml

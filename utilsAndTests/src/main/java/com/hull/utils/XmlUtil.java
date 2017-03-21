@@ -1,7 +1,7 @@
-package com.sitech.crmtpd.common.util;
+package com.hull.utils;
 
-import com.sitech.jcf.core.App;
-import com.sitech.jcf.core.exception.SysException;
+//import com.sitech.jcf.core.App;
+//import com.sitech.jcf.core.exception.SysException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.*;
@@ -46,13 +46,13 @@ public class XmlUtil {
             document = documentBuilder.parse(new ByteArrayInputStream(_xmlStr
                     .getBytes(_charSetName)));
         } catch (ParserConfigurationException e) {
-            throw new SysException("接口参数转换错误", e);
+//            throw new SysException("接口参数转换错误", e);
         } catch (UnsupportedEncodingException e) {
-            throw new SysException("接口参数编码错误", e);
+//            throw new SysException("接口参数编码错误", e);
         } catch (SAXException e) {
-            throw new SysException("解析xml结果错误");
+//            throw new SysException("解析xml结果错误");
         } catch (IOException e) {
-            throw new SysException("IOException异常", e);
+//            throw new SysException("IOException异常", e);
         }
         return document;
     }
@@ -74,7 +74,7 @@ public class XmlUtil {
             result = (String) expr.evaluate(xmlDocument, XPathConstants.STRING);
         } catch (XPathExpressionException e) {
             log.error("XPath路径解析错误", e);
-            throw new SysException("XPath路径解析错误");
+//            throw new SysException("XPath路径解析错误");
         }
         return result;
     }
@@ -92,7 +92,7 @@ public class XmlUtil {
             }
         } catch (XPathExpressionException e) {
             log.error("XPath路径解析错误", e);
-            throw new SysException("XPath路径解析错误");
+//            throw new SysException("XPath路径解析错误");
         }
         return resultList;
     }
@@ -148,7 +148,8 @@ public class XmlUtil {
      */
     public static String getXml2Str(String fileName, String fileUrl) throws IOException {
         StringBuffer sb = new StringBuffer();
-        String webRootPath = App.getAppPath();
+//        String webRootPath = App.getAppPath();
+        String webRootPath = "";
         String path = webRootPath + fileUrl;
         File file = new File(path + fileName);
         InputStream is = new FileInputStream(file);

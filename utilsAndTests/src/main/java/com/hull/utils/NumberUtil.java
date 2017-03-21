@@ -1,7 +1,9 @@
-package com.sitech.crmtpd.common.util;
+package com.hull.utils;
 
-import com.sitech.crmtpd.common.constant.UtilConstant;
-import com.sitech.crmtpd.common.exception.SystemException;
+//import com.sitech.crmtpd.common.constant.UtilConstant;
+//import com.sitech.crmtpd.common.exception.SystemException;
+
+import org.omg.CORBA.SystemException;
 
 import java.text.DecimalFormat;
 import java.text.Format;
@@ -27,7 +29,7 @@ public class NumberUtil {
         try {
             l = Long.valueOf(s);
         } catch (NumberFormatException e2) {
-            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
+//            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
         }
         return l;
     }
@@ -52,7 +54,7 @@ public class NumberUtil {
         try {
             l = Double.valueOf(s);
         } catch (NumberFormatException e2) {
-            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
+//            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
         }
         return l;
     }
@@ -71,7 +73,7 @@ public class NumberUtil {
         try {
             l = Long.parseLong(str);
         } catch (NumberFormatException e2) {
-            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", str, "数字");
+//            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", str, "数字");
         }
         return l;
     }
@@ -90,7 +92,7 @@ public class NumberUtil {
         try {
             n = Integer.valueOf(s);
         } catch (NumberFormatException e2) {
-            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
+//            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
         }
         return n;
     }
@@ -154,7 +156,7 @@ public class NumberUtil {
         try {
             n = Integer.parseInt(s);
         } catch (NumberFormatException e2) {
-            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
+//            throw new SystemException(UtilConstant.MODEL_CODE_UTIL, e2, "200001", s, "数字");
         }
         return n;
     }

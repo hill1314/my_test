@@ -1,5 +1,7 @@
 package com.hull.test.javabase.paixu;
 
+import org.apache.poi.ss.formula.functions.T;
+
 import java.sql.Array;
 import java.util.Arrays;
 
@@ -19,7 +21,7 @@ import java.util.Arrays;
  */
 public class PaixuTest {
     public static void main(String[] args) {
-        int[] numbers = {2,3,5,1,9,4};
+        int[] numbers = {6,3,5,1,9,4};
 //        bubbleSort(numbers);
         quickSort(numbers,0,5);
 //        insertSort(numbers);
@@ -55,8 +57,8 @@ public class PaixuTest {
      * 快速排序<br/>
      * <ul>
      * <li>从数列中挑出一个元素，称为“基准”</li>
-     * <li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分割之后，
-     * 该基准是它的最后位置。这个称为分割（partition）操作。</li>
+     * <li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。
+     * 在这个分割之后，该基准是它的最后位置。这个称为分割（partition）操作。</li>
      * <li>递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
      * </ul>
      *
@@ -64,16 +66,60 @@ public class PaixuTest {
      * @param start
      * @param end
      */
+
+
+    public static void quickSort2(int[]targetArr,int start,int end)
+    {
+        int i=start,j=end;
+        int key = targetArr[start];
+
+        while(i<j){
+            /*按j--方向遍历目标数组，直到比key小的值为止*/
+            while(j>i && targetArr[j]>=key){
+                j--;
+            }
+            if(i<j){
+                /*targetArr[i]已经保存在key中，可将后面的数填入*/
+                targetArr[i]=targetArr[j];
+                i++;
+            }
+            /*按i++方向遍历目标数组，直到比key大的值为止*/
+            while(i<j&&targetArr[i]<=key){
+            /*此处一定要小于等于零，假设数组之内有一亿个1，0交替出现的话，
+            而key的值又恰巧是1的话，那么这个小于等于的作用就会使下面的if语句少执行一亿次。*/
+                i++;
+            }
+            if(i<j){
+                /*targetArr[j]已保存在targetArr[i]中，可将前面的值填入*/
+                targetArr[j]=targetArr[i];
+                j--;
+            }
+        }
+        /*此时i==j*/
+        targetArr[i]=key;
+
+        /*递归调用，把key前面的完成排序*/
+        quickSort2(targetArr,start,i-1);
+
+        /*递归调用，把key后面的完成排序*/
+        quickSort2(targetArr,j+1,end);
+
+    }
+
+
     public static void quickSort(int[] numbers, int start, int end) {
         if (start < end) {
             int base = numbers[start]; // 选定的基准值（第一个数值作为基准值）
             int temp; // 记录临时中间值
             int i = start, j = end;
             do {
+                //从左向右遍历，找出大于等于基准的数
                 while ((numbers[i] < base) && (i < end))
                     i++;
+                //从右向左遍历，找出小于等于基准的数
                 while ((numbers[j] > base) && (j > start))
                     j--;
+                //交换 上面找到的两个数
                 if (i <= j) {
                     temp = numbers[i];
                     numbers[i] = numbers[j];
@@ -81,10 +127,12 @@ public class PaixuTest {
                     i++;
                     j--;
                 }
-            } while (i <= j);
-            if (start < j)
+            } while (i < j); //遍历直到左右碰头
+
+            //没有遍历完继续遍历
+            if (j > start)
                 quickSort(numbers, start, j);
-            if (end > i)
+            if ( i < end)
                 quickSort(numbers, i, end);
         }
     }

@@ -11,4 +11,14 @@ public class HashStudy {
         int hash = h^h2;
         System.out.println(hash);
     }
+
+    /***
+     * HashMap 的hash算法
+     * @param key
+     * @return
+     */
+    public static int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
 }

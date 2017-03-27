@@ -23,9 +23,36 @@ public class PaixuTest {
     public static void main(String[] args) {
         int[] numbers = {6,3,5,1,9,4};
 //        bubbleSort(numbers);
-        quickSort(numbers,0,5);
+//        quickSort(numbers,0,5);
+        myQuickSort(numbers,0,5);
 //        insertSort(numbers);
         System.out.println(Arrays.toString(numbers));
+    }
+
+
+    public static void myQuickSort(int[] numbers,int start,int end){
+        int i=start,j=end;
+        int key = numbers[i];
+        while(i<j){
+            while(i<end && numbers[i]<key)
+                i++;
+            while(j>start && numbers[j]>key)
+                j--;
+            if(i<=j){
+                int temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        if(j>start){
+            myQuickSort(numbers,start,j);
+        }
+        if(i<end){
+            myQuickSort(numbers,i,end);
+        }
     }
 
     /**
@@ -62,7 +89,7 @@ public class PaixuTest {
      * <li>递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
      * </ul>
      *
-     * @param numbers
+     * @param targetArr
      * @param start
      * @param end
      */

@@ -22,7 +22,7 @@ public class UseStudent {
      * 序列化
      */
     public static void seriaObject(){
-        Student student = new Student("Lily",20);
+        Student student = new Student("Lily",18);
         File file = new File("D:/student2.txt");
 
         try {

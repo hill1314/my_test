@@ -1,10 +1,9 @@
 package com.hull.test.javabase.nio;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
@@ -14,7 +13,10 @@ public class NIOTest {
     public static void main(String[] args) {
         try {
 //            readProgram();
-            writeProgram();
+//            writeProgram();
+//            subBuffer();
+            directBuffer();
+//            readOnlyBuffer();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,6 +88,111 @@ public class NIOTest {
         fc.write(buffer);
         fos.close();
     }
+
+
+    /**
+     * 子缓存区
+     */
+    public static void subBuffer(){
+        ByteBuffer buffer = ByteBuffer.allocate( 10 );
+
+        // 缓冲区中的数据0-9
+        for (int i=0; i<buffer.capacity(); ++i) {
+            buffer.put( (byte)i );
+        }
+
+        // 创建子缓冲区
+        buffer.position( 3 );
+        buffer.limit( 7 );
+        ByteBuffer slice = buffer.slice();
+
+        // 改变子缓冲区的内容
+        for (int i=0; i<slice.capacity(); ++i) {
+            byte b = slice.get( i );
+            b *= 10;
+            slice.put( i, b );
+        }
+
+        buffer.position( 0 );
+        buffer.limit( buffer.capacity() );
+
+        while (buffer.remaining()>0) {
+            System.out.println( buffer.get() );
+        }
+    }
+
+    /**
+     *  只读缓存区
+     */
+    public static void readOnlyBuffer(){
+        ByteBuffer buffer = ByteBuffer.allocate( 10 );
+
+        // 缓冲区中的数据0-9
+        for (int i=0; i<buffer.capacity(); ++i) {
+            buffer.put( (byte)i );
+        }
+
+        // 创建只读缓冲区
+        ByteBuffer readonly = buffer.asReadOnlyBuffer();
+
+        // 改变原缓冲区的内容
+        for (int i=0; i<buffer.capacity(); ++i) {
+            byte b = buffer.get( i );
+            b *= 10;
+            buffer.put( i, b );
+        }
+
+        readonly.position(0);
+        readonly.limit(buffer.capacity());
+
+        // 只读缓冲区的内容也随之改变
+        while (readonly.remaining()>0) {
+            System.out.println( readonly.get());
+        }
+    }
+
+
+    /**
+     * 直接缓存区
+     */
+    public static void directBuffer() throws Exception {
+        String infile = "d:\\test.txt";
+        FileInputStream fin = new FileInputStream( infile );
+        FileChannel fcin = fin.getChannel();
+
+        String outfile = String.format("d:\\testcopy.txt");
+        FileOutputStream fout = new FileOutputStream( outfile );
+        FileChannel fcout = fout.getChannel();
+
+        // 使用allocateDirect，而不是allocate
+        ByteBuffer buffer = ByteBuffer.allocateDirect( 1024 );
+        while (true) {
+            buffer.clear();
+            int r = fcin.read( buffer );
+            if (r==-1) {
+                break;
+            }
+            buffer.flip();
+            fcout.write( buffer );
+        }
+    }
+
+    /**
+     * 内存映射文件I/O
+     * @throws Exception
+     */
+    public static void iOBuffer() throws Exception {
+        RandomAccessFile raf = new RandomAccessFile( "c:\\test.txt", "rw" );
+        FileChannel fc = raf.getChannel();
+
+        MappedByteBuffer mbb = fc.map( FileChannel.MapMode.READ_WRITE, 0, 1024 );
+
+        mbb.put( 0, (byte)97 );
+        mbb.put( 1023, (byte)122 );
+
+        raf.close();
+    }
+
 
 
 }

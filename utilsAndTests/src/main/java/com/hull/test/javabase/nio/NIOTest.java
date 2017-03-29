@@ -8,6 +8,7 @@ import java.nio.channels.FileChannel;
 
 /**
  * Created by hull on 2017/3/27.
+ * 参考 http://blog.csdn.net/wuxianglong/article/details/6604817
  */
 public class NIOTest {
     public static void main(String[] args) {

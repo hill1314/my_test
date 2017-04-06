@@ -36,8 +36,8 @@ public class CacheUtilsTest {
         configuration.dynamicConfig(false);  //不允许动态修改配置信息
         CacheManager cacheManager = new CacheManager(configuration);
         Cache cache = cacheManager.getCache("test");
-        cache.put(new Element("test", "test111"));
-        System.out.println(cache.get("test").getObjectValue());
+        cache.put(new Element("ID", "111"));
+        System.out.println(cache.get("ID").getObjectValue());
     }
 
     @Test

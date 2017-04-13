@@ -3,8 +3,10 @@ package com.hull.utils;
 import com.hull.test.autoMethod.camel.BizException;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,7 +23,6 @@ public class FreemarkerUtils {
         try {
             getConfiguration();
         } catch (Exception e) {
-            // TODO 自动生成的 catch 块
             e.printStackTrace();
         }
     }
@@ -36,9 +37,14 @@ public class FreemarkerUtils {
         if (!isInit) {
             synchronized (cfg) {
                 if (!isInit) {
-                    String projectPath = PropertiesUtils.getConfig("project.path");
-                    String tempPath = projectPath+"/aplus_tools/src/main/resources/META-INF/templates";
-                    cfg.setDirectoryForTemplateLoading(new File(tempPath));
+                    //method1
+//                    String projectPath = PropertiesUtils.getConfig("project.path");
+//                    String tempPath = projectPath+"/aplus_tools/src/main/resources/META-INF/templates";
+//                    cfg.setDirectoryForTemplateLoading(new File(tempPath));
+                    ////method2
+                    cfg.setClassForTemplateLoading(Configuration.class,"/ftl");
+                    cfg.setDefaultEncoding("UTF-8"); //这个一定要设置，不然在生成的页面中 会乱码
+
                     isInit = true;
                 }
             }
@@ -59,7 +65,6 @@ public class FreemarkerUtils {
                 throw new BizException("00010");
             }
         }  catch (Exception e) {
-            // TODO 自动生成的 catch 块
             e.printStackTrace();
             throw new BizException("00010");
         }
@@ -122,7 +127,22 @@ public class FreemarkerUtils {
         }
     }
 
-    public static void main(String[] args) {
-
+    /**
+     * 输出到控制台
+     * @param templateName 模板文件名
+     * @param dataMap
+     */
+    public static void print(String templateName,Map<String,Object> dataMap) {
+        try {
+            //通过Template可以将模板文件输出到相应的流
+            Template temp = FreemarkerUtils.getTemplate(templateName);
+            temp.process(dataMap, new PrintWriter(System.out));
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
 }

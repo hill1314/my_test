@@ -1,30 +1,35 @@
 package com.hull.test.suanfa.tree;
 
-import java.util.Calendar;
 
 /**
  * Created by Administrator on 2017/4/18.
  */
-public class BinaryTree<K extends Calendar,V> {
+public class BinaryTree<K extends Comparable,V> {
     private Node<K,V> root;
+
+    public Node<K, V> getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node<K, V> root) {
+        this.root = root;
+    }
 
     /**
      * 二叉树添加元素
-     * @param treeNode
      * @param key
      * @param value
      */
-    public void addNode(Node<K,V> treeNode,K key,V value){
+    public void addNode(K key,V value){
         Node<K,V>  node = new Node<K, V>(key,value);
         add(root,node);
     }
 
     /**
      * 二叉树添加元素
-     * @param treeNode
      * @param node
      */
-    public void addNode(Node<K,V> treeNode,Node<K,V> node){
+    public void addNode(Node<K,V> node){
         add(root,node);
     }
     /**
@@ -53,7 +58,8 @@ public class BinaryTree<K extends Calendar,V> {
      * @return
      */
     public V getValue(K key){
-        return getNode(key).getValue();
+        Node<K,V> node = getNode(key);
+        return null==node?null:node.getValue();
     }
     /**
      *  模拟二叉树 search 方法
@@ -78,9 +84,9 @@ public class BinaryTree<K extends Calendar,V> {
         if(r==0){   //当前节点的key就是要找的key
             return node;
         }else if(r>0){  //当前节点的key > 要找的key
-            get(node.getLeft(),key);    //到左子节点继续找
+            return get(node.getLeft(),key);    //到左子节点继续找
         }else if(r<0){//当前节点的key < 要找的key
-            get(node.getRight(),key); //到右子节点继续找
+            return get(node.getRight(),key); //到右子节点继续找
         }
         return null;
     }
@@ -136,10 +142,76 @@ public class BinaryTree<K extends Calendar,V> {
 
         @Override
         public String toString() {
-            return "Node{" +
-                    "key=" + key +
-                    ", value=" + value +
+            return "{\"" + key + "\":\"" + value +
+                    "\", left:" + (null==left?"\"\"":left.toString()) +
+                    ", right:" + (null==right?"\"\"":right.toString()) +
                     '}';
         }
+    }
+
+    /**
+     * 前续遍历
+     * @param node
+     */
+    public void preOrder(Node node){
+        if (null==node)   return;
+        print(node);
+        preOrder(node.getLeft());
+        preOrder(node.getRight());
+    }
+
+    /**
+     * 中续遍历
+     * @param node
+     */
+    public void inOrder(Node node){
+        if (null==node)   return;
+        inOrder(node.getLeft());
+        print(node);
+        inOrder(node.getRight());
+    }
+    /**
+     * 后续遍历
+     * @param node
+     */
+    public void postOrder(Node node){
+        if (null==node)   return;
+        postOrder(node.getLeft());
+        postOrder(node.getRight());
+        print(node);
+    }
+
+    private void print(Node node) {
+        System.out.print("["+node.getKey()+"]="+node.getValue()+",");
+    }
+
+    public static void main(String[] args) {
+        BinaryTree<Integer,String> tree = new BinaryTree<Integer, String>();
+        Node<Integer,String> root = new Node<>(12,"V12");
+        tree.setRoot(root);
+        tree.addNode(new Node<>(5,"V5"));
+        tree.addNode(new Node<>(3,"V3"));
+        tree.addNode(new Node<>(6,"V6"));
+        tree.addNode(new Node<>(19,"V19"));
+        tree.addNode(new Node<>(8,"V8"));
+        tree.addNode(new Node<>(15,"V15"));
+        tree.addNode(new Node<>(13,"V13"));
+        tree.addNode(new Node<>(20,"V20"));
+        tree.addNode(new Node<>(21,"V21"));
+        tree.addNode(new Node<>(28,"V28"));
+        System.out.println(root.toString());
+
+        //search
+//        String value = tree.getValue(19);
+//        System.out.println(value);
+
+        //遍历
+        System.out.println("前续：");
+        tree.preOrder(root);
+        System.out.println("中续：");
+        tree.inOrder(root);
+        System.out.println("后续：");
+        tree.postOrder(root);
+
     }
 }

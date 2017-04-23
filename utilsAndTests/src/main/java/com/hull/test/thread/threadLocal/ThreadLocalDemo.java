@@ -9,7 +9,7 @@ import java.util.Random;
  * http://lavasoft.blog.51cto.com/62575/51926/
  */
 public class ThreadLocalDemo implements Runnable{
-
+    //创建线程局部变量studentLocal，在此用来保存Student对象
     private final static ThreadLocal studentLocal = new ThreadLocal();
 
     public static void main(String[] agrs) {

@@ -1,6 +1,7 @@
 package com.hull.test.javabase.jdk1_8NewFeatures;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * Created by Administrator on 2017/3/6.
@@ -26,7 +27,7 @@ public class F2_Lambda {
     /**
      * 原来的写法
      */
-    public static void oldMethod(){
+    public static void compareOld(){
         Collections.sort(names, new Comparator<String>() {
             @Override
             public int compare(String a, String b) {
@@ -38,7 +39,16 @@ public class F2_Lambda {
     /**
      * 新的写法
      */
-    public static void newMethod(){
+    public static void compareNew(){
         Collections.sort(names,(String a,String b)->b.compareTo(a));
     }
+
+
+    public static void main(String[] args) {
+        //Predicate和Filter
+        String possible="111";
+        Predicate<String> metched = s -> s.equalsIgnoreCase(possible);
+//        names.filter(metched);
+    }
+
 }

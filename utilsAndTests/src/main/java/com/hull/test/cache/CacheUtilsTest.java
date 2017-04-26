@@ -38,6 +38,11 @@ public class CacheUtilsTest {
         Cache cache = cacheManager.getCache("test");
         cache.put(new Element("ID", "111"));
         System.out.println(cache.get("ID").getObjectValue());
+        //删除缓存
+//        cacheManager.removeCache("test");
+        //清空缓存
+        cache.flush();
+        System.out.println(cache.get("ID"));
     }
 
     @Test

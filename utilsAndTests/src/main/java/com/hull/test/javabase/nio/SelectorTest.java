@@ -76,7 +76,7 @@ public class SelectorTest {
         if (key.isAcceptable()) {
             ServerSocketChannel server = (ServerSocketChannel) key.channel();
             SocketChannel channel = server.accept();
-            channel.configureBlocking(false);
+            channel.configureBlocking(false);//设置为非阻塞
             channel.register(selector, SelectionKey.OP_READ);
         }
         // 读信息

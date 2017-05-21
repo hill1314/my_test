@@ -8,7 +8,7 @@ public class Singleton3 {
 	private static Singleton3 single=null;
 	//3、通过提供一个静态方法来获得单例的引用
 	//为了保证多线程环境下的另一种实现方式，双重锁检查
-	//性能，第一次的时候
+	//性能，只影响第一次调用的时候
 	public static Singleton3 getInstance() {  
 	  if (single == null) {
 	      synchronized (Singleton3.class) {

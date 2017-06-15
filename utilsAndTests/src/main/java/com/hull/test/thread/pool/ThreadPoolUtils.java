@@ -29,7 +29,7 @@ public class ThreadPoolUtils {
 //    invokeAny(...)
 //    invokeAll(...)
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         // 接收一個 java.lang.Runnable 对象作为参数，并且以异步的方式执行它
 //        executorService.execute(new MyTask(111));
@@ -37,8 +37,10 @@ public class ThreadPoolUtils {
         // 这個 Future 对象可以用于判断 Runnable 是否结束执行
 //        Future future = executorService.submit(new MyTask(111));
 
+        int threadNum = 10;
+        final CountDownLatch countDownLatch = new CountDownLatch(threadNum);
         List<TcSupLoanInfo> allList = new ArrayList<>();
-        for(int n=0;n<1000;n++){
+        for(int n=0;n<100;n++){
             allList.add(new TcSupLoanInfo(n+""));
         }
 
@@ -47,22 +49,31 @@ public class ThreadPoolUtils {
 
         Long begTime = System.currentTimeMillis();
 
-        for(int i=0;i<10;i++){
+        System.out.println(countDownLatch.toString());
+
+        for(int i=0;i<threadNum;i++){
             int begx = i*step;
             int endx = begx + step;
             if(i==9){
                 endx = allList.size();
             }
             subList = allList.subList(begx,endx);
-            executorService.execute(new MyTask2(subList));
+//            executorService.execute(new MyTask2(subList));
+            Future future = executorService.submit(new MyTask3(subList));
+//            future.get();
+//            System.out.println(future.isDone());
+//            if(future.isDone()){
+//                countDownLatch.countDown();
+//                System.out.println(countDownLatch.toString());
+//            }
         }
 
-        Long endTime = System.currentTimeMillis();
-
-
-        System.out.println("耗时："+(endTime-begTime)+"ms");
-
-//        executorService.shutdown(); //不再接受新的任务，等线程执行完后停止
+        executorService.shutdown(); //不再接受新的任务，等线程执行完后停止
 //        executorService.shutdownNow();//立即停止
+
+        countDownLatch.await();
+        Long endTime = System.currentTimeMillis();
+        System.out.println("耗时："+(endTime-begTime)+"ms");
     }
+
 }

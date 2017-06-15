@@ -1,17 +1,17 @@
 package com.gupao.lessons.designPatterns.d7_template;
 
-//³åÒûÁÏ(ÄÃ³öÈ¥ÂôÇ®ÁË)
+//å†²é¥®æ–™(æ‹¿å‡ºå»å–é’±äº†)
 public abstract class Bevegrage {
 	
-	//²»ÄÜ±»ÖØĞ´
+	//ä¸èƒ½è¢«é‡å†™
 	public final void create(){
-		//1¡¢°ÑË®ÉÕ¿ª
+		//1ã€æŠŠæ°´çƒ§å¼€
 		boilWater();
-		//2¡¢°Ñ±­×Ó×¼±¸ºÃ¡¢Ô­²ÄÁÏ·Åµ½±­ÖĞ
+		//2ã€æŠŠæ¯å­å‡†å¤‡å¥½ã€åŸææ–™æ”¾åˆ°æ¯ä¸­
 		pourInCup();
-		//3¡¢ÓÃË®³åÅİ
+		//3ã€ç”¨æ°´å†²æ³¡
 		brew();
-		//4¡¢Ìí¼Ó¸¨ÁÏ
+		//4ã€æ·»åŠ è¾…æ–™
 		addCoundiments();
 	}
 	
@@ -21,11 +21,11 @@ public abstract class Bevegrage {
 	
 	
 	public void brew(){
-		System.out.println("½«¿ªË®·ÅÈë±­ÖĞ½øĞĞ³åÅİ");
+		System.out.println("å°†å¼€æ°´æ”¾å…¥æ¯ä¸­è¿›è¡Œå†²æ³¡");
 	};
 	
 	public void boilWater(){
-		System.out.println("ÉÕ¿ªË®£¬ÉÕµ½100¶È¿ÉÒÔÆğ¹øÁË");
+		System.out.println("çƒ§å¼€æ°´ï¼Œçƒ§åˆ°100åº¦å¯ä»¥èµ·é”…äº†");
 	}
 	
 }

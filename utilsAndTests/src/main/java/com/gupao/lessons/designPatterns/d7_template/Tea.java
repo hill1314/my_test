@@ -2,14 +2,14 @@ package com.gupao.lessons.designPatterns.d7_template;
 
 public class Tea extends Bevegrage{
 
-	//Ô­²ÄÁÏ·Åµ½±­ÖĞ
+	//åŸææ–™æ”¾åˆ°æ¯ä¸­
 	public void pourInCup() {
-		System.out.println("½«²èÒ¶·ÅÈë±­ÖĞ");
+		System.out.println("å°†èŒ¶å¶æ”¾å…¥æ¯ä¸­");
 	}
 
-	//·¿¸¨ÁÏ
+	//æˆ¿è¾…æ–™
 	public void addCoundiments() {
-		System.out.println("Ìí¼Ó·äÃÛ");
+		System.out.println("æ·»åŠ èœ‚èœœ");
 	}
 
 }

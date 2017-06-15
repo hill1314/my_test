@@ -2,14 +2,14 @@ package com.gupao.lessons.designPatterns.d7_template;
 
 public class Coffee  extends Bevegrage{
 
-	//Ô­²ÄÁÏ·Åµ½±­ÖĞ
+	//åŸææ–™æ”¾åˆ°æ¯ä¸­
 	public void pourInCup() {
-		System.out.println("½«¿§·Èµ¹Èë±­ÖĞ");
+		System.out.println("å°†å’–å•¡å€’å…¥æ¯ä¸­");
 	}
 
-	//·¿¸¨ÁÏ
+	//æˆ¿è¾…æ–™
 	public void addCoundiments() {
-		System.out.println("Ìí¼ÓÅ£ÄÌºÍÌÇ");
+		System.out.println("æ·»åŠ ç‰›å¥¶å’Œç³–");
 	}
 
 }

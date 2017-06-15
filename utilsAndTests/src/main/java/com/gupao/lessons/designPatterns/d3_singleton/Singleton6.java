@@ -2,7 +2,7 @@ package com.gupao.lessons.designPatterns.d3_singleton;
 
 import java.util.HashMap;
 import java.util.Map;
-//ÀàËÆSpringÀïÃæµÄ·½·¨£¬½«ÀàÃû×¢²á£¬ÏÂ´Î´ÓÀïÃæÖ±½Ó»ñÈ¡¡£  
+//ç±»ä¼¼Springé‡Œé¢çš„æ–¹æ³•ï¼Œå°†ç±»åæ³¨å†Œï¼Œä¸‹æ¬¡ä»é‡Œé¢ç›´æ¥è·å–ã€‚  
 public class Singleton6 {
     private static Map<String, Singleton6> map = new HashMap<String, Singleton6>();
 
@@ -11,11 +11,11 @@ public class Singleton6 {
         map.put(single.getClass().getName(), single);
     }
 
-    //±£»¤µÄÄ¬ÈÏ¹¹Ôì×Ó
+    //ä¿æŠ¤çš„é»˜è®¤æ„é€ å­
     protected Singleton6() {
     }
 
-    //¾²Ì¬¹¤³§·½·¨,·µ»¹´ËÀàÎ©Ò»µÄÊµÀı  
+    //é™æ€å·¥å‚æ–¹æ³•,è¿”è¿˜æ­¤ç±»æƒŸä¸€çš„å®ä¾‹  
     public static Singleton6 getInstance(String name) {
         if (name == null) {
             name = Singleton6.class.getName();

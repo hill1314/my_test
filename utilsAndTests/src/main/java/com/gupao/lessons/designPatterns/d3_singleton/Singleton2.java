@@ -1,16 +1,16 @@
 package com.gupao.lessons.designPatterns.d3_singleton;
 
-//ÀÁººÊ½µ¥Àý.±£Ö¤Ïß³Ì°²È«
+//æ‡’æ±‰å¼å•ä¾‹.ä¿è¯çº¿ç¨‹å®‰å…¨
 public class Singleton2 {
-	//1¡¢µÚÒ»²½ÏÈ½«¹¹Ôì·½·¨Ë½ÓÐ»¯
+	//1ã€ç¬¬ä¸€æ­¥å…ˆå°†æž„é€ æ–¹æ³•ç§æœ‰åŒ–
 	private Singleton2() {}
-	//2¡¢È»ºóÉùÃ÷Ò»¸ö¾²Ì¬±äÁ¿±£´æµ¥ÀýµÄÒýÓÃ
+	//2ã€ç„¶åŽå£°æ˜Žä¸€ä¸ªé™æ€å˜é‡ä¿å­˜å•ä¾‹çš„å¼•ç”¨
 	private static Singleton2 single=null;
-	//3¡¢Í¨¹ýÌá¹©Ò»¸ö¾²Ì¬·½·¨À´»ñµÃµ¥ÀýµÄÒýÓÃ
-	//ÎªÁË±£Ö¤¶àÏß³Ì»·¾³ÏÂÕýÈ··ÃÎÊ£¬¸ø·½·¨¼ÓÉÏÍ¬²½Ëøsynchronized
-	//É÷ÓÃ  synchronized ¹Ø¼ü×Ö£¬×èÈû£¬ÐÔÄÜ·Ç³£µÍÏÂµÄ
-	//¼ÓÉÏsynchronized¹Ø¼ü×ÖÒÔºó£¬¶ÔÓÚgetInstance()·½·¨À´Ëµ£¬ËüÊ¼ÖÕµ¥Ïß³ÌÀ´·ÃÎÊ
-	//Ã»ÓÐ³ä·ÖÀûÓÃÉÏÎÒÃÇµÄ¼ÆËã»ú×ÊÔ´£¬Ôì³É×ÊÔ´µÄÀË·Ñ
+	//3ã€é€šè¿‡æä¾›ä¸€ä¸ªé™æ€æ–¹æ³•æ¥èŽ·å¾—å•ä¾‹çš„å¼•ç”¨
+	//ä¸ºäº†ä¿è¯å¤šçº¿ç¨‹çŽ¯å¢ƒä¸‹æ­£ç¡®è®¿é—®ï¼Œç»™æ–¹æ³•åŠ ä¸ŠåŒæ­¥é”synchronized
+	//æ…Žç”¨  synchronized å…³é”®å­—ï¼Œé˜»å¡žï¼Œæ€§èƒ½éžå¸¸ä½Žä¸‹çš„
+	//åŠ ä¸Šsynchronizedå…³é”®å­—ä»¥åŽï¼Œå¯¹äºŽgetInstance()æ–¹æ³•æ¥è¯´ï¼Œå®ƒå§‹ç»ˆå•çº¿ç¨‹æ¥è®¿é—®
+	//æ²¡æœ‰å……åˆ†åˆ©ç”¨ä¸Šæˆ‘ä»¬çš„è®¡ç®—æœºèµ„æºï¼Œé€ æˆèµ„æºçš„æµªè´¹
 	public static synchronized Singleton2 getInstance() {
 		if (single == null) {
 			single = new Singleton2();

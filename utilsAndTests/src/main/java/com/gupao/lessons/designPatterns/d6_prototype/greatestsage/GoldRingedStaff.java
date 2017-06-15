@@ -3,19 +3,19 @@ package com.gupao.lessons.designPatterns.d6_prototype.greatestsage;
 import java.io.Serializable;
 
 /**
- * ½ğ¹¿°ô
+ * é‡‘ç®æ£’
  * @author Tom
  *
  */
 public class GoldRingedStaff implements Serializable{
 	
-	private float height = 100; //³¤¶È
-	private float diameter = 10;//Ö±¾¶
+	private float height = 100; //é•¿åº¦
+	private float diameter = 10;//ç›´å¾„
 	
 	
 	
 	/**
-	 * ½ğ¹¿°ô³¤´ó
+	 * é‡‘ç®æ£’é•¿å¤§
 	 */
 	public void grow(){
 		this.diameter *= 2;
@@ -23,7 +23,7 @@ public class GoldRingedStaff implements Serializable{
 	}
 	
 	/**
-	 * ½ğ¹¿°ôËõĞ¡
+	 * é‡‘ç®æ£’ç¼©å°
 	 */
 	public void shrink(){
 		this.diameter /= 2;

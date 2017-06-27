@@ -57,8 +57,26 @@ public class CacheUtilsTest {
     public void testXmlPath() {
         //这个文件路径可以是相对路径，也可以是绝对路径。这里使用的是相对路径。
         CacheManager cacheManager = new CacheManager("src/main/resources/cache/ehcache1.xml");
-        System.out.println(cacheManager.getActiveConfigurationText());
+//        System.out.println(cacheManager.getActiveConfigurationText());
+        Cache cache = cacheManager.getCache("testCache1");
+        cache.put(new Element("name1", "MOTO"));
+        System.out.println(cache.get("name1").getObjectValue());
+
+        //清空缓存
+        clearCache(cacheManager);
+        System.out.println(cache.get("name1")==null?"null":cache.get("name1").getObjectValue());
     }
+
+    private void clearCache(CacheManager cacheManager) {
+        String[] caches = cacheManager.getCacheNames();
+        for( int i=0;i<caches.length;i++){
+            String cacheName = caches[i];
+            System.out.println("清空缓存"+cacheName+"...");
+            Cache cache = cacheManager.getCache(cacheName);
+            cache.flush();
+        }
+    }
+
 
     @Test
     public void testURL() {

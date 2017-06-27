@@ -1,0 +1,9 @@
+*.class
+/target
+/out
+/.settings
+.classpath
+.project
+/web
+/src/test
+/.idea

@@ -14,12 +14,12 @@ public class TestTemplate {
 	
 	
 	//SpringJDBC
-	//ÊÇjava¹æ·¶£¬¸÷¸öÊý¾Ý¿â³§ÉÌ×Ô¼ºÈ¥ÊµÏÖ
-	//1¡¢¼ÓÔØÇý¶¯ÀàDriverManager
-	//2¡¢½¨Á¢Á¬½Ó
-	//3¡¢´´½¨Óï¾ä¼¯(±ê×¼Óï¾ä¼¯¡¢Ô¤´¦ÀíÓï¾ä¼¯)(Óï¾ä¼¯£¿  MySQL¡¢Oracle¡¢SQLServer¡¢Access)
-	//4¡¢Ö´ÐÐÓï¾ä¼¯
-	//5¡¢½á¹û¼¯ResultSet ÓÎ±ê
+	//æ˜¯javaè§„èŒƒï¼Œå„ä¸ªæ•°æ®åº“åŽ‚å•†è‡ªå·±åŽ»å®žçŽ°
+	//1ã€åŠ è½½é©±åŠ¨ç±»DriverManager
+	//2ã€å»ºç«‹è¿žæŽ¥
+	//3ã€åˆ›å»ºè¯­å¥é›†(æ ‡å‡†è¯­å¥é›†ã€é¢„å¤„ç†è¯­å¥é›†)(è¯­å¥é›†ï¼Ÿ  MySQLã€Oracleã€SQLServerã€Access)
+	//4ã€æ‰§è¡Œè¯­å¥é›†
+	//5ã€ç»“æžœé›†ResultSet æ¸¸æ ‡
 	//ORM(?)
 	
 }

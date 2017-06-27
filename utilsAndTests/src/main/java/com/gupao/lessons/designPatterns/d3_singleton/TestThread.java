@@ -8,12 +8,12 @@ import java.util.concurrent.CountDownLatch;
 public class TestThread {
 	
 	public static void main(String[] args) {
-		//Æô¶¯100Ïß³ÌÍ¬Ê±È¥ÇÀCPU
+		//å¯åŠ¨100çº¿ç¨‹åŒæ—¶å»æŠ¢CPU
 		int count = 100;
 		
-		//·¢ÁîÇ¹£¬²âÊÔ²¢·¢¾­³£ÓÃµ½
+		//å‘ä»¤æªï¼Œæµ‹è¯•å¹¶å‘ç»å¸¸ç”¨åˆ°
 		CountDownLatch latch = new CountDownLatch(count);
-		//SetÄ¬ÈÏÈ¥È¥ÖØµÄ£¬setÊÇ±¾ÉíÏß³Ì²»°²È«µÄ
+		//Seté»˜è®¤å»å»é‡çš„ï¼Œsetæ˜¯æœ¬èº«çº¿ç¨‹ä¸å®‰å…¨çš„
 		//
 		final Set<Singleton1> syncSet = Collections.synchronizedSet(new HashSet<Singleton1>());
 		
@@ -30,7 +30,7 @@ public class TestThread {
 		}
 		  
 		try {
-			latch.await();//µÈ´ıËùÓĞÏß³ÌÈ«²¿Íê³É£¬×îÖÕÊä³ö½á¹û
+			latch.await();//ç­‰å¾…æ‰€æœ‰çº¿ç¨‹å…¨éƒ¨å®Œæˆï¼Œæœ€ç»ˆè¾“å‡ºç»“æœ
 			System.out.println(syncSet.size());
 		} catch (InterruptedException e) {
 			e.printStackTrace();

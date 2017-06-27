@@ -16,8 +16,8 @@ public class ConcretePrototype implements Cloneable{
 			prototype = (ConcretePrototype)super.clone();
 			prototype.list = (ArrayList)list.clone();
 			
-			//¿ËÂ¡»ùÓÚ×Ö½ÚÂëµÄ
-			//ÓÃ·´Éä£¬»òÕßÑ­»·
+			//å…‹éš†åŸºäºå­—èŠ‚ç çš„
+			//ç”¨åå°„ï¼Œæˆ–è€…å¾ªç¯
 		}catch(Exception e){
 			
 		}
@@ -26,7 +26,7 @@ public class ConcretePrototype implements Cloneable{
 	}
 
 	
-	//¶¨ÒåÉÏ100¸öÊôĞÔ
+	//å®šä¹‰ä¸Š100ä¸ªå±æ€§
 	
 	public int getAge() {
 		return age;

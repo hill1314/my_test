@@ -9,16 +9,16 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * ÆëÌì´óÊ¥
+ * é½å¤©å¤§åœ£
  * @author Tom
  *
  */
 public class TheGreatestSage  extends Monkey implements Cloneable,Serializable{
 	
-	//½ğ¹¿°ô
+	//é‡‘ç®æ£’
 	private GoldRingedStaff staff;
 	
-	//´ÓÊ¯Í··ìÀï±Ä³öÀ´
+	//ä»çŸ³å¤´ç¼é‡Œè¹¦å‡ºæ¥
 	public TheGreatestSage(){
 		this.staff = new GoldRingedStaff();
 		this.birthday = new Date();
@@ -27,21 +27,21 @@ public class TheGreatestSage  extends Monkey implements Cloneable,Serializable{
 		System.out.println("------------------------");
 	}
 	
-	//·ÖÉí¼¼ÄÜ
+	//åˆ†èº«æŠ€èƒ½
 	public Object clone(){
-		//Éî¶È¿ËÂ¡
+		//æ·±åº¦å…‹éš†
 		ByteArrayOutputStream bos = null;
 		ObjectOutputStream oos = null;
 		ByteArrayInputStream bis = null;
 		ObjectInputStream ois = null;
 		try {
-			//return super.clone();//Ä¬ÈÏÇ³¿ËÂ¡£¬Ö»¿ËÂ¡°Ë´ó»ù±¾Êı¾İÀàĞÍºÍString
-			//ĞòÁĞ»¯
+			//return super.clone();//é»˜è®¤æµ…å…‹éš†ï¼Œåªå…‹éš†å…«å¤§åŸºæœ¬æ•°æ®ç±»å‹å’ŒString
+			//åºåˆ—åŒ–
 			bos = new ByteArrayOutputStream();
 			oos = new ObjectOutputStream(bos);
 			oos.writeObject(this);
 			
-			//·´ĞòÁĞ»¯
+			//ååºåˆ—åŒ–
 			bis = new ByteArrayInputStream(bos.toByteArray());
 			ois = new ObjectInputStream(bis);
 			TheGreatestSage copy = (TheGreatestSage)ois.readObject();
@@ -64,13 +64,13 @@ public class TheGreatestSage  extends Monkey implements Cloneable,Serializable{
 		}
 	}
 
-	//±ä»¯
+	//å˜åŒ–
 	public void change(){
 		TheGreatestSage copySage = (TheGreatestSage)clone();
-		System.out.println("´óÊ¥±¾×ğÉúÈÕÊÇ£º" + this.getBirthday().getTime());
-		System.out.println("¿ËÂ¡´óÊ¥µÄÉúÈÕÊÇ:" + copySage.getBirthday().getTime());
-		System.out.println("´óÊ¥±¾×ğºÍ¿ËÂ¡´óÊ¥ÊÇ·ñÎªÍ¬Ò»¸ö¶ÔÏó:" + (this == copySage));
-		System.out.println("´óÊ¥±¾×ğ³ÖÓĞµÄ½ğ¹¿°ô¸ú¿ËÂ¡´óÊ¥³ÖÓĞ½ğ¹¿°ôÊÇ·ñÎªÍ¬Ò»¸ö¶ÔÏó:" + (this.getStaff() == copySage.getStaff()));
+		System.out.println("å¤§åœ£æœ¬å°Šç”Ÿæ—¥æ˜¯ï¼š" + this.getBirthday().getTime());
+		System.out.println("å…‹éš†å¤§åœ£çš„ç”Ÿæ—¥æ˜¯:" + copySage.getBirthday().getTime());
+		System.out.println("å¤§åœ£æœ¬å°Šå’Œå…‹éš†å¤§åœ£æ˜¯å¦ä¸ºåŒä¸€ä¸ªå¯¹è±¡:" + (this == copySage));
+		System.out.println("å¤§åœ£æœ¬å°ŠæŒæœ‰çš„é‡‘ç®æ£’è·Ÿå…‹éš†å¤§åœ£æŒæœ‰é‡‘ç®æ£’æ˜¯å¦ä¸ºåŒä¸€ä¸ªå¯¹è±¡:" + (this.getStaff() == copySage.getStaff()));
 	}
 	
 	public GoldRingedStaff getStaff() {

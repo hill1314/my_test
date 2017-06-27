@@ -1,10 +1,10 @@
 package com.gupao.lessons.designPatterns.d2_factory;
 
-//²úÆ·½Ó¿Ú
-//Æû³µĞèÒªÂú×ãÒ»¶¨µÄ±ê×¼
+//äº§å“æ¥å£
+//æ±½è½¦éœ€è¦æ»¡è¶³ä¸€å®šçš„æ ‡å‡†
 public interface Car {
 	
-	//¹æ¶¨Æû³µµÄÆ·ÅÆ
+	//è§„å®šæ±½è½¦çš„å“ç‰Œ
 	String getName();
 	
 }

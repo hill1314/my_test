@@ -4,7 +4,7 @@ package com.gupao.lessons.designPatterns.d2_factory.abstr;
 import com.gupao.lessons.designPatterns.d2_factory.Audi;
 import com.gupao.lessons.designPatterns.d2_factory.Car;
 
-//具体的业务逻辑封装
+//鍏蜂綋鐨勪笟鍔￠�昏緫灏佽
 public class AudiFactory extends AbstractFactory {
 
 	@Override

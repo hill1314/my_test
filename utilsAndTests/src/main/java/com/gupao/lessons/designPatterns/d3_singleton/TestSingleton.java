@@ -4,7 +4,7 @@ public class TestSingleton {
     String name = null;  
     private TestSingleton() {}  
   
-    //×¢ÒâÕâÀïÓÃµ½ÁËvolatile¹Ø¼ü×Ö
+    //æ³¨æ„è¿™é‡Œç”¨åˆ°äº†volatileå…³é”®å­—
     private static volatile TestSingleton instance = null;  
   
     public static TestSingleton getInstance() {  

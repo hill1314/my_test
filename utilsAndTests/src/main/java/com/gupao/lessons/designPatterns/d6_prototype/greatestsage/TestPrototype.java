@@ -6,6 +6,6 @@ public class TestPrototype {
 		TheGreatestSage sage = new TheGreatestSage();
 		sage.change();
 		
-		//跟《西游记》中描述的一致，怎么办？
+		//璺熴�婅タ娓歌銆嬩腑鎻忚堪鐨勪竴鑷达紝鎬庝箞鍔烇紵
 	}
 }

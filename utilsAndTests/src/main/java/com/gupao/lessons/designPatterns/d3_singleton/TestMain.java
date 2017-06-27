@@ -11,9 +11,9 @@ public class TestMain {
         ts2.printInfo();  
           
         if(ts1 == ts2){  
-            System.out.println("´´½¨µÄÊÇÍ¬Ò»¸öÊµÀı" + ts1.getName());  
+            System.out.println("åˆ›å»ºçš„æ˜¯åŒä¸€ä¸ªå®ä¾‹" + ts1.getName());  
         }else{  
-            System.out.println("´´½¨µÄ²»ÊÇÍ¬Ò»¸öÊµÀı" + ts1.getName());  
+            System.out.println("åˆ›å»ºçš„ä¸æ˜¯åŒä¸€ä¸ªå®ä¾‹" + ts1.getName());  
         }  
     }
 }

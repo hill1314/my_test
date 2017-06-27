@@ -3,14 +3,14 @@ package com.gupao.lessons.designPatterns.d6_prototype.greatestsage;
 import java.util.Date;
 
 
-//猴子
+//鐚村瓙
 public class Monkey {
-	//身高
-	protected int height;//基本
-	//体重
+	//韬珮
+	protected int height;//鍩烘湰
+	//浣撻噸
 	protected int weight;
-	//生日
-	protected Date birthday;//不是基本类型
+	//鐢熸棩
+	protected Date birthday;//涓嶆槸鍩烘湰绫诲瀷
 	
 	public int getHeight() {
 		return height;

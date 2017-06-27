@@ -8,8 +8,8 @@ public abstract class AbstractFactory {
  	protected abstract Car getCar();
  	
  	
- 	//Õâ¶Î´úÂë¾ÍÊÇ¶¯Ì¬ÅäÖÃµÄ¹¦ÄÜ
- 	//¹Ì¶¨Ä£Ê½µÄÎ¯ÅÉ
+ 	//è¿™æ®µä»£ç å°±æ˜¯åŠ¨æ€é…ç½®çš„åŠŸèƒ½
+ 	//å›ºå®šæ¨¡å¼çš„å§”æ´¾
  	public Car getCar(String name){
 		if("BMW".equalsIgnoreCase(name)){
 			return new BmwFactory().getCar();
@@ -18,7 +18,7 @@ public abstract class AbstractFactory {
 		}else if("Audi".equalsIgnoreCase(name)){
 			return new AudiFactory().getCar();
 		}else{
-			System.out.println("Õâ¸ö²úÆ·²ú²»³öÀ´");
+			System.out.println("è¿™ä¸ªäº§å“äº§ä¸å‡ºæ¥");
 			return null;
 		}
 	}

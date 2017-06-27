@@ -1,14 +1,14 @@
 package com.gupao.lessons.designPatterns.d3_singleton;
 
-//����ʽ����.˫�������
+//懒汉式单例.双重锁检查
 public class Singleton3 {
-	//1����һ���Ƚ����췽��˽�л�
+	//1、第一步先将构造方法私有化
 	private Singleton3() {}
-	//2��Ȼ������һ����̬�������浥��������
+	//2、然后声明一个静态变量保存单例的引用
 	private static Singleton3 single=null;
-	//3��ͨ���ṩһ����̬��������õ���������
-	//Ϊ�˱�֤���̻߳����µ���һ��ʵ�ַ�ʽ��˫�������
-	//���ܣ�ֻӰ���һ�ε��õ�ʱ��
+	//3、通过提供一个静态方法来获得单例的引用
+	//为了保证多线程环境下的另一种实现方式，双重锁检查
+	//性能，只影响第一次调用的时候
 	public static Singleton3 getInstance() {  
 	  if (single == null) {
 	      synchronized (Singleton3.class) {

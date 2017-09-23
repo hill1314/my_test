@@ -1,6 +1,8 @@
 package com.hull.utils;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2016/12/5.
@@ -43,6 +45,27 @@ public class FileUtils {
     }
 
     /**
+     * 写文件
+     * @param file
+     * @param inputStream
+     * @throws Exception
+     */
+    public static void writeFileStream(String file,InputStream inputStream) throws Exception {
+        FileOutputStream f = new FileOutputStream(file);
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(f));
+
+        byte[] buf = new byte[4096];
+        int count = 0 ;
+        while((count = inputStream.read(buf))!=-1)
+        {
+            f.write(buf, 0, count);
+        }
+
+        f.close();
+        writer.close();
+    }
+
+    /**
      * A方法追加文件：使用RandomAccessFile
      */
     public static void appendMethodA(String fileName, String content) {
@@ -77,11 +100,34 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 获取文件列表
+     * @param path
+     * @return
+     */
+    public static File[] listFiles(String path){
+        File filePath = new File(path);
+        File[] files = null;
+
+        if (filePath.isDirectory()){
+            files = filePath.listFiles();
+        }
+        return files;
+    }
+
+
     public static void main(String[] args){
+        StringBuffer result = new StringBuffer();
         try {
-//            String str = readFile("F:\\test.txt");
-//            System.out.print(str);
-            writeFile("F:\\test1.txt","啊啊啊啊");
+
+            File[] files = listFiles("/Users/huleilei/Desktop/");
+            for(File file:files){
+                Date date = new Date(file.lastModified());
+                String dateStr = DateUtil.toStringYmdHms(date);
+                result.append(file.getName()+"_"+file.length()/1024+"kb_"+dateStr+"\n");
+            }
+
+            System.out.println(result.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

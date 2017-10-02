@@ -14,9 +14,10 @@ public class NIOTest {
     public static void main(String[] args) {
         try {
 //            readProgram();
+            readFile(new File("/Users/huleilei/Desktop/settings.xml"));
 //            writeProgram();
 //            subBuffer();
-            directBuffer();
+//            directBuffer();
 //            readOnlyBuffer();
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +55,7 @@ public class NIOTest {
      * @throws IOException
      */
     public static void readProgram() throws IOException {
-        FileInputStream fin = new FileInputStream("d:\\temp.txt");
+        FileInputStream fin = new FileInputStream("/Users/huleilei/Desktop/settings.xml");
         // 获取通道
         FileChannel fc = fin.getChannel();
         // 创建缓冲区
@@ -69,6 +70,38 @@ public class NIOTest {
         }
 
         fin.close();
+    }
+
+
+    public static void readFile(File file){
+        FileInputStream fis = null;
+        try {
+            ByteBuffer buffer = ByteBuffer.allocate((int) file.length());
+            fis = new FileInputStream(file);
+            FileChannel channel = fis.getChannel();
+
+            int n = 0;
+            while ((n =channel.read(buffer))>0){
+                System.out.println(n);
+            }
+            buffer.flip();
+
+            byte[] bytes = buffer.array();
+            String str = new String(bytes,"utf-8");
+            System.out.println(str);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(fis!=null){
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     /**

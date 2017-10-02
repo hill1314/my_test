@@ -488,14 +488,25 @@ public class HttpClientUtil {
 
 
     public static void main(String[] args) throws Exception {
-        String url = "http://localhost:8080/getFile";
+        String url = "http://123.57.16.233:20000/getFile";
         Map<String, Object> params = new HashMap<>();
-        String path = "/Users/huleilei/Desktop/";
-        String name = "订单提成基础数据20170804191043.xlsx";
+
+        //汇总信息
+        String path = "/tmp/salary-commission/";
+        String name = "201709-薪资提成.xlsx";
+
+        //明细信息
+//        String path = "/tmp/salary/exportfile/";
+//        String name = "订单提成基础数据20171001081507.xlsx";
+//
+        // 日志
+//        String path = "/home/mlcar/car-loan-provider/logs/";
+//        String name = "localhost_access_log.2017-09-29.txt";
+
         params.put("name",path+name);
         InputStream instream = HttpClientUtil.doGetFile(url,params);
 
-        FileUtils.writeFileStream(path+"receive/"+name,instream);
+        FileUtils.writeFileStream("/Users/huleilei/Desktop/receive/"+name,instream);
 
     }
 }
